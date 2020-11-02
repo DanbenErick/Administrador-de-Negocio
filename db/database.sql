@@ -7,7 +7,8 @@ CREATE TABLE Empleado (
     nombre varchar(15) NOT NULL,
     usuario varchar(15) NOT NULL,
     pass varchar(200) NOT NULL,
-    rol boolean NOT NULL
+    rol boolean NOT NULL,
+    CONSTRAINT UK_Empleado UNIQUE (usuario)
 );
 
 CREATE TABLE Proveedor (

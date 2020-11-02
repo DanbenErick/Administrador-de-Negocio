@@ -6,7 +6,7 @@
     <title>Identifiquese</title>
 </head>
 <body>
-    
+    <h1>Pagina Principal</h1>
 
     <noscript>Es nesesario tener activado el JS</noscript>
 </body>
