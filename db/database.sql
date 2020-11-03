@@ -8,6 +8,7 @@ CREATE TABLE Empleado (
     usuario varchar(15) NOT NULL,
     pass varchar(200) NOT NULL,
     rol boolean NOT NULL,
+    activado boolean NOT NULL,
     CONSTRAINT UK_Empleado UNIQUE (usuario)
 );
 
@@ -15,7 +16,9 @@ CREATE TABLE Proveedor (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nombre varchar(15) NOT NULL,
     direccion varchar(30) NOT NULL,
-    telefono varchar(9) NOT NULL
+    telefono varchar(9) NOT NULL,
+    id_creador int NOT NULL,
+    CONSTRAINT FK_proveedor_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
 CREATE TABLE Cliente (
@@ -24,12 +27,16 @@ CREATE TABLE Cliente (
     direccion varchar(30) NOT NULL,
     telefono varchar(9) NOT NULL,
     dni varchar(8) NOT NULL,
-    tipo int NOT NULL
+    tipo int NOT NULL,
+    id_creador int NOT NULL,
+    CONSTRAINT FK_cliente_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
 CREATE TABLE Categoria (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    categoria_nombre varchar(30) NOT NULL
+    categoria_nombre varchar(30) NOT NULL,
+    id_creador int NOT NULL,
+    CONSTRAINT FK_categoria_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
 CREATE TABLE Producto (
@@ -40,7 +47,9 @@ CREATE TABLE Producto (
     precio float NOT NULL,
     cantidad int NOT NULL,
     id_categoria int NOT NULL,
-    CONSTRAINT FK_producto_categoria FOREIGN KEY (id_categoria) REFERENCES Categoria(id)
+    id_creador int NOT NULL,
+    CONSTRAINT FK_producto_categoria FOREIGN KEY (id_categoria) REFERENCES Categoria(id),
+    CONSTRAINT FK_producto_empleadoa FOREIGN KEY (id_categoria) REFERENCES Empleado(id)
 );
 
 CREATE TABLE Producto_Ingresados (
