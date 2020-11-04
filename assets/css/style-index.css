@@ -15,11 +15,42 @@ section {
 }
 section h1 {
     font-family: Montserrat;
+    font-size: 18px;
 }
 body {
     background: url(https://images.pexels.com/photos/1428787/pexels-photo-1428787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 .container_login {
     background: white;
-    
+    width: 578px;
+    height: 316px;
+    padding: 3%;
+}
+.input_group{
+    margin-top: 5%;
+}
+.input_group label{
+    display: block;
+}
+.input_group input{
+    width: 489px;
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1.5%;
+}
+.input_group button{
+    margin-bottom: 0;
+    background: #1F5673;
+    color: #fff;
+    border: none;
+    width: 269px;
+    height: 32px;
+    padding: auto;
+}
+.boton{
+    text-align: center;
+}
+.input_group button:hover{
+    cursor: pointer;
 }

@@ -21,7 +21,7 @@
                         <label for="password">Contraseña</label>
                         <input type="password" id="password" name="password">
                     </div>
-                    <div class="input_group">
+                    <div class="input_group boton">
                         <button type="submit">Ingresar</button>
                     </div>
                 </form>
