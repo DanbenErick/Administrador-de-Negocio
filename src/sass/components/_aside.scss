@@ -1,0 +1,28 @@
+section {
+    width: 100%;
+    display: grid;
+    margin-top: 38px;
+    grid-template-columns: 15% 85%;
+}
+aside {
+    background: $color_primario;
+    width: 100%;
+    height: calc(100vh - 38px);
+    position: sticky;
+    top: 38px;
+    z-index: 1000;
+    ul {
+        li {
+            a {
+                display: block;
+                text-align: center;
+                color: white;
+                text-decoration: none;
+                padding: 20px 0;
+                &:hover {
+                    background: darken($color_primario, 10);
+                }
+            }
+        }
+    }
+}
