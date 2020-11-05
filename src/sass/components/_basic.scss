@@ -1,0 +1,18 @@
+// Varibles
+
+// Colores
+$color_primario: #1F5673;
+$color_font: #131313;
+// Fuentes
+$font_titulo: Montserrat, sans-serif;
+$font_texto: Poppins, sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font_texto;
+}
+img  {
+    width: 100%;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "tarea",
+  "version": "1.0.0",
+  "description": "1. Danben\r 2. Daniel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanbenErick/Tarea-Dev-Web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanbenErick/Tarea-Dev-Web/issues"
+  },
+  "homepage": "https://github.com/DanbenErick/Tarea-Dev-Web#readme",
+  "dependencies": {
+    "axios": "^0.21.0"
+  }
+}
