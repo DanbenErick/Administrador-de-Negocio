@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proveedores</title>
     <link rel="stylesheet" href="../../public/css/style-proveedores.css">
+    <link href="https://file.myfontastic.com/n9CfQyeKJZCBsGs6dvgkTK/icons.css" rel="stylesheet">
 </head>
 <body>
     <?php require_once("components/nav.inc.php"); ?>
@@ -48,8 +49,8 @@
                             <td>Av.Brasil</td>
                             <td>985632147</td>
                             <td>
-                                <i>a</i>
-                                <i>b</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                         <tr>
@@ -57,8 +58,8 @@
                             <td>Av.Brasil</td>
                             <td>985632147</td>
                             <td>
-                                <i>a</i>
-                                <i>b</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                         <tr>
@@ -66,8 +67,8 @@
                             <td>Av.Brasil</td>
                             <td>985632147</td>
                             <td>
-                                <i>a</i>
-                                <i>b</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                         <tr>
@@ -75,8 +76,8 @@
                             <td>Av.Brasil</td>
                             <td>985632147</td>
                             <td>
-                                <i>a</i>
-                                <i>b</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                     </tbody>

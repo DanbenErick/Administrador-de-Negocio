@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empleados</title>
     <link rel="stylesheet" href="../../public/css/style-empleados.css">
+    <link href="https://file.myfontastic.com/n9CfQyeKJZCBsGs6dvgkTK/icons.css" rel="stylesheet">
 </head>
 <body>
     <?php require_once("components/nav.inc.php"); ?>
@@ -48,33 +49,33 @@
                             <td>Andres Manuel</td>
                             <td>AndreMan</td>
                             <td>
-                                <i>a</i>
+                                <i class="icon-check-circle"></i>
                             </td>
                             <td>
-                                <i>a</i>
-                                <i>f</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Andres Manuel</td>
-                            <td>AndreMan</td>
-                            <td>
-                                <i>a</i>
-                            </td>
-                            <td>
-                                <i>a</i>
-                                <i>f</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                         <tr>
                             <td>Andres Manuel</td>
                             <td>AndreMan</td>
                             <td>
-                                <i>a</i>
+                                <i class="icon-check-circle-o"></i>
                             </td>
                             <td>
-                                <i>a</i>
-                                <i>f</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Andres Manuel</td>
+                            <td>AndreMan</td>
+                            <td>
+                                <i class="icon-check-circle"></i>
+                            </td>
+                            <td>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                     </tbody>

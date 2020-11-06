@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
     <link rel="stylesheet" href="../../public/css/style-clientes.css">
+    <link href="https://file.myfontastic.com/n9CfQyeKJZCBsGs6dvgkTK/icons.css" rel="stylesheet">
 </head>
 <body>
     <?php require_once("components/nav.inc.php"); ?>
@@ -65,8 +66,8 @@
                             <td>Persona</td>
                             <td>Andres</td>
                             <td>
-                                <i>a</i>
-                                <i>a</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                         <tr>
@@ -77,8 +78,8 @@
                             <td>Persona</td>
                             <td>Andres</td>
                             <td>
-                                <i>a</i>
-                                <i>a</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                         <tr>
@@ -89,8 +90,8 @@
                             <td>Persona</td>
                             <td>Andres</td>
                             <td>
-                                <i>a</i>
-                                <i>a</i>
+                                <i class="icon-pencil"></i>
+                                <i class="icon-trash"></i>
                             </td>
                         </tr>
                     </tbody>
