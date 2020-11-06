@@ -1,4 +1,11 @@
 @import "components/basic";
 @import "components/nav";
 @import "components/aside";
-@import "components/main";
+@import "components/mixins";
+main {
+    padding: 40px;
+}
+.container_table {
+    @include table_container;
+    padding-bottom: 40px;
+}
