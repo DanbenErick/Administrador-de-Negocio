@@ -1,0 +1,15 @@
+@import "components/basic";
+@import "components/nav";
+@import "components/aside";
+@import "components/mixins";
+main {
+    padding: 40px;
+    .container_form {
+        .input_group {
+            @include input_group;
+        }
+    }
+    .container_table {
+        @include table_container;
+    }
+}

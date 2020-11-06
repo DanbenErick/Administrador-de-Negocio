@@ -1,18 +1,35 @@
+//Importaciones
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,800;1,400&family=Open+Sans:wght@400;700&display=swap');
 // Varibles
 
 // Colores
 $color_primario: #1F5673;
 $color_font: #131313;
 // Fuentes
-$font_titulo: Montserrat, sans-serif;
-$font_texto: Poppins, sans-serif;
+$font_titulo: 'Montserrat', sans-serif;
+$font_texto: 'Open Sans', sans-serif;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font_titulo;
+}
+p, a, label, input, th, td, button {
     font-family: $font_texto;
 }
 img  {
     width: 100%;
+}
+.titulo::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 5px;
+    background: #000;
+    border-radius: 50px;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }

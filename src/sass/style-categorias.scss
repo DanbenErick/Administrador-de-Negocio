@@ -1,0 +1,18 @@
+@import "components/basic";
+@import "components/nav";
+@import "components/aside";
+@import "components/mixins";
+main {
+    margin: 40px;
+    @include separate_title;
+    .container_form {
+        form {
+            .input_group {
+                @include input_group;
+            }
+        }
+    }
+    .container_table {
+        @include table_container;
+    }
+}
