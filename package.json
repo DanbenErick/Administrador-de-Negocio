@@ -18,5 +18,8 @@
   "homepage": "https://github.com/DanbenErick/Tarea-Dev-Web#readme",
   "dependencies": {
     "axios": "^0.21.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.4.0"
   }
 }

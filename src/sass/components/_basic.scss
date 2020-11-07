@@ -5,6 +5,10 @@
 // Colores
 $color_primario: #1F5673;
 $color_font: #131313;
+
+$color_edit: #f1c40f;
+$color_success: #27ae60;
+$color_error: #e74c3c;
 // Fuentes
 $font_titulo: 'Montserrat', sans-serif;
 $font_texto: 'Open Sans', sans-serif;
@@ -32,4 +36,26 @@ img  {
     border-radius: 50px;
     margin-top: 5px;
     margin-bottom: 30px;
+}
+
+.icon-pencil {
+    color: $color_edit;
+    &:hover {
+        cursor: pointer;
+        color: darken($color_edit, 10);
+    }
+}
+.icon-trash {
+    color: $color_error;
+    &:hover {
+        cursor: pointer;
+        color: darken($color_error, 10);
+    }
+}
+.icon-check-circle {
+    color: $color_success;
+    &:hover {
+        cursor: pointer;
+        color: darken($color_success, 10);
+    }
 }
