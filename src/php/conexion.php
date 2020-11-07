@@ -1,8 +1,9 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "database");
-if (!$conexion)
-		{
-		  die('No se puede conectar: '.mysqli_error($conexion));
-		}
+
+	try {
+		$conexion = new PDO("mysql:host=localhost;dbname=database", "root", "");
+	} catch (PDOException $e) {
+		echo 'Falló la conexión: ' . $e->getMessage();
+	}
 
 ?>
