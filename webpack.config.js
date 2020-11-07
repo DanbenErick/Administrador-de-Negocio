@@ -1,6 +1,13 @@
 const path = require('path')
 const config = {
-    // Codigo de conf entry and outputs
+    entry: {
+        home: './src/js/index.js'
+    },
+    mode: 'production',
+    output: {
+        path: path.join(__dirname, 'public/js/'),
+        filename: '[name].js'
+    }
 }
 
 module.exports = config
