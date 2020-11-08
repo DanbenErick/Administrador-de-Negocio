@@ -1,4 +1,8 @@
-
+<?php 
+    session_start();
+    error_reporting(0);
+?>
+<?php if(!$_SESSION['id_usuario']): ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,3 +37,6 @@
     <noscript>Es nesesario tener activado el JS</noscript>
 </body>
 </html>
+<?php else: ?>
+<h1>Ya iniciaste sesion</h1>
+<?php endif;?>

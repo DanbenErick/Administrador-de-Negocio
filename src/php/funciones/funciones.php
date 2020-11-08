@@ -42,5 +42,13 @@ function login($usuario, $password) {
         }
 }
 
+function cerrar_sesion() {
+    session_destroy();
+}
+
+function go_login() {
+    header('Location: ../../index.php');
+}
+
 
 ?>
