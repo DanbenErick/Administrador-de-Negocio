@@ -76,5 +76,4 @@ CREATE TABLE Producto_Egresados (
     CONSTRAINT FK_productoEgre_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
-
-
+INSERT INTO empleado (nombre, usuario, pass , rol, activado) VALUES ('Administrador', 'admin', '$2y$10$bLRiOKAFGwgQRKPVYGBPMOmqH53/BzKTkjbQs1kc5k.n14C8P0pKO', 1, 1);

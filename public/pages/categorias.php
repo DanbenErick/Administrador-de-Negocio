@@ -8,9 +8,9 @@
     <link href="https://file.myfontastic.com/n9CfQyeKJZCBsGs6dvgkTK/icons.css" rel="stylesheet">
 </head>
 <body>
-    <?php require_once("components/nav.inc.php"); ?>
+    <?php require_once("templates/nav.inc.php"); ?>
     <section>
-        <?php require_once("components/aside.inc.php");?>
+        <?php require_once("templates/aside.inc.php");?>
         <main>
             <h1 class="titulo">Agregar Categoria</h1>
             <div class="container_form">

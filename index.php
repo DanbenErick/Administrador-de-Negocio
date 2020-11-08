@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +13,7 @@
         <div class="container_login">
             <div class="container_form">
                 <h1>Identifiquese</h1>
-                <form action="">
+                <form method="POST" action="src/php/login.php">
                     <div class="input_group">
                         <label for="usuario">Usuario</label>
                         <input type="text" id="usuario" name="usuario" required>

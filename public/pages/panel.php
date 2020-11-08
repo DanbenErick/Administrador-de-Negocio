@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,9 +8,9 @@
     <link rel="stylesheet" href="../../public/css/style-panel.css">
 </head>
 <body>
-    <?php require_once("components/nav.inc.php");?>
+    <?php require_once("templates/nav.inc.php");?>
     <section>
-    <?php require_once("components/aside.inc.php");?>
+    <?php require_once("templates/aside.inc.php");?>
         <main>
             <h1 class="titulo">Ultimas Ventas</h1>
             <div class="container_table">
