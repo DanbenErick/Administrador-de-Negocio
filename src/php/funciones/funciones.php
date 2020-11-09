@@ -265,7 +265,7 @@ function registrar_proveedor($nombre, $direccion, $telefono, $creador) {
         return [
             'ok' => true,
             'error' => null
-        ]
+        ];
     }
     return [
         'ok' => false,
