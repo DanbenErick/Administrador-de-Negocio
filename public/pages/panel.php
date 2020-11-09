@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php 
+    session_start();
+    error_reporting(0);
+    if(isset($_SESSION['id_usuario'])):
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -180,3 +184,5 @@
     </section>
 </body>
 </html>
+<?php else: header("Location: ../../index.php")?>
+<?php endif;?>

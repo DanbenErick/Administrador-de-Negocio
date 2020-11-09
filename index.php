@@ -38,5 +38,6 @@
 </body>
 </html>
 <?php else: ?>
-<h1>Ya iniciaste sesion</h1>
+    <h1>Ya iniciaste sesion</h1>
+    <?= $_SESSION['nombre']?>
 <?php endif;?>

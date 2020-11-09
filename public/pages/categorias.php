@@ -1,3 +1,7 @@
+<?php
+ session_start();
+ error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,13 +18,13 @@
         <main>
             <h1 class="titulo">Agregar Categoria</h1>
             <div class="container_form">
-                <form action="">
+                <form action="../../src/php/registrar_categoria.php" method="POST">
                     <div class="input_group">
                         <label for="nombre_categoria">Nombre de la Categoria</label>
                         <input type="text" id="nombre_categoria" name="nombre_categoria">
                     </div>
                     <div class="input_group">
-                        <button>Registrar Categorias</button>
+                        <button type="submit">Registrar Categorias</button>
                     </div>
                 </form>
             </div>
