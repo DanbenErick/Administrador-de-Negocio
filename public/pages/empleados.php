@@ -1,6 +1,8 @@
 <?php
- session_start();
- error_reporting(0);
+session_start();
+error_reporting(0);
+require_once "../../src/php/funciones/funciones.php";
+$empleados = traer_empleados()['data'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,21 +20,21 @@
         <main>
             <h1 class="titulo">Crear Cuenta de Empleado</h1>
             <div class="container_form">
-                <form action="">
+                <form action="../../src/php/registrar_empleado.php" method="POST">
                     <div class="input_group">
                         <label for="">Nombre del Empleado</label>
-                        <input type="text">
+                        <input type="text" name="nombre">
                     </div>
                     <div class="input_group">
                         <label for="">Usuario del Empleado</label>
-                        <input type="text">
+                        <input type="text" name="usuario">
                     </div>
                     <div class="input_group">
                         <label for="">Contraseña del Empleado</label>
-                        <input type="text">
+                        <input type="text" name="password">
                     </div>
                     <div class="input_group">
-                        <button>Crear Cuenta</button>
+                        <button type="submit">Crear Cuenta</button>
                     </div>
                 </form>
             </div>
@@ -49,39 +51,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Andres Manuel</td>
-                            <td>AndreMan</td>
-                            <td>
-                                <i class="icon-check-circle"></i>
-                            </td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Andres Manuel</td>
-                            <td>AndreMan</td>
-                            <td>
-                                <i class="icon-check-circle-o"></i>
-                            </td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Andres Manuel</td>
-                            <td>AndreMan</td>
-                            <td>
-                                <i class="icon-check-circle"></i>
-                            </td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
+                        <?php if($empleados != null):?>
+                            <?php foreach($empleados as $empleado):?>
+                                <tr>
+                                    <td><?= $empleado['nombre']?></td>
+                                    <td><?= $empleado['usuario']?></td>
+                                    <td>
+                                        <?php if($empleado['activado'] == 1):?>
+                                            <i class="icon-check-circle"></i>
+                                        <?php else:?>
+                                            <i class="icon-check-circle-o"></i>
+                                        <?php endif;?>
+                                    </td>
+                                    <td>
+                                        <i class="icon-pencil"></i>
+                                        <i class="icon-trash"></i>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
+                        <?php else:?>
+                            <tr><td colspan="4">No hay contenido</td></tr>
+                        <?php endif;?>
                     </tbody>
                 </table>
             </div>

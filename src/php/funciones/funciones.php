@@ -6,6 +6,7 @@ require_once(PATH_CONN_DB);
 
 // Emplados
 function registrar_empleado($nombre, $usuario, $pass) {
+    global $pdo;
     $sql = "INSERT INTO empleado (nombre, usuario, pass, rol, activado) VALUES (:nombre,:usuario,:pass, 0, 1)";
     $new_password = password_hash($pass, PASSWORD_DEFAULT);
     $insert = $pdo->prepare($sql);
@@ -25,7 +26,7 @@ function registrar_empleado($nombre, $usuario, $pass) {
 }
 function traer_empleados() {
     global $pdo;
-    $sql = "SELECT * FROM empleado";
+    $sql = "SELECT * FROM empleado WHERE rol=0";
     $select = $pdo->prepare($sql);
     if($select->execute()) {
         return [
@@ -330,7 +331,7 @@ function traer_clientes() {
 function registrar_cliente($nombre, $direccion, $telefono, $dni, $tipo, $creador) {
     global $pdo;
     $sql = "INSERT INTO cliente (nombre, direccion, telefono, dni, tipo, id_creador) 
-            VALUES (:nombre, :direccion, : telefono, :dni, :tipo, :creador)";
+            VALUES (:nombre, :direccion, :telefono, :dni, :tipo, :creador)";
     $insert = $pdo->prepare($sql);
     $insert->bindParam(":nombre", $nombre);
     $insert->bindParam(":direccion", $direccion);
@@ -387,5 +388,16 @@ function eliminar_cliente($id) {
         'ok' => false,
         'error' => $delete->errorInfo()
     ];
+}
+
+function detectar_vacio(...$variables) {
+
+    foreach($variables as $valor) {
+        if (empty($valor)) {
+            return false;
+        }
+    }
+
+    return true;
 }
 ?>

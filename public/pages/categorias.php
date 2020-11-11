@@ -1,6 +1,8 @@
 <?php
- session_start();
- error_reporting(0);
+session_start();
+error_reporting(0);
+require_once "../../src/php/funciones/funciones.php";
+$categorias = traer_categorias()['data'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,38 +41,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>lacicero</td>
-                            <td>Eduardo</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>lacicero</td>
-                            <td>Eduardo</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>lacicero</td>
-                            <td>Eduardo</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>lacicero</td>
-                            <td>Eduardo</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
+                    <?php if($categorias != null):?>
+                        <?php foreach($categorias as $categoria):?>
+                            <tr>
+                                <td><?= $categoria['categoria_nombre']?></td>
+                                <td><?= $categoria['id_creador']?></td>
+                                <?php if($_SESSION['id_rol'] == 1):?>
+                                    <td>
+                                        <i class="icon-pencil"></i>
+                                        <i class="icon-trash"></i>
+                                    </td>
+                                <?php endif;?>
+                            </tr>    
+                        <?php endforeach;?>
+                    <?php endif;?>
                     </tbody>
                 </table>
             </div>
