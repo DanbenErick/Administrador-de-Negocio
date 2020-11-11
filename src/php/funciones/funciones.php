@@ -96,7 +96,7 @@ function editar_empleado($id, $nombre, $usuario, $pass) {
 }
 function eliminar_empleado($id) {
     global $pdo;
-    $sql = "DELETE FROM cliente WHERE id = :id";
+    $sql = "DELETE FROM empleado WHERE id = :id";
     $delete = $pdo->prepare($sql);
     $delete->bindParam(":id", $id);
     if($delete->execute()){

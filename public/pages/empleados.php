@@ -84,7 +84,7 @@ $empleados = traer_empleados()['data'];
                                     </td>
                                     <td>
                                         <a href="empleados.php?id=<?= $empleado['id']?>"><i class="icon-pencil"></i></a>
-                                        <a href="#?>"><i class="icon-trash"></i></a>
+                                        <a class="delete_empleados" href="../../src/php/eliminar_empleado.php?id=<?= $empleado['id']?>"><i class="icon-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
@@ -96,5 +96,6 @@ $empleados = traer_empleados()['data'];
             </div>
         </main>
     </section>
+    <script src="../js/empleados.js"></script>
 </body>
 </html>
