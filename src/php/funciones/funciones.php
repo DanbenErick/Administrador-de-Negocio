@@ -102,14 +102,24 @@ function login($usuario, $password) {
                             ];
                         }else {
                             // La contraseña no coincide
-                            
+                            return [
+                                'ok' => false,
+                                'error' => 'la contraseña no coincide o esta deshabilitado tu cuenta'
+                            ];
                         }
                     } else {
                         // El usuario no existe
+                        return [
+                            'ok' => false,
+                            'error' => 'usuario no encontrado'
+                        ];
                     }
                 }
             }else {
-                print($query->errorInfo());
+                return [
+                    'ok' => false,
+                    'error' => $query->errorInfo()
+                ];
                 // La consulta fallo
                 // retornar_to_login("fail");
             }
