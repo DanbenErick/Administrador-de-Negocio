@@ -26,9 +26,16 @@ $empleados = traer_empleados()['data'];
     <section>
         <?php require_once("templates/aside.inc.php");?>
         <main>
-            <h1 class="titulo">Crear Cuenta de Empleado</h1>
+            
             <div class="container_form">
+            <?php if(isset($_GET['id'])):?>
+                <h1 class="titulo">Editar Cuenta de Empleado: <?= $empleados[$_GET['id'] - 2]['nombre']?></h1>
+                <form action="../../src/php/editar_empleado.php" method="POST">
+                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+            <?php else:?>
+                <h1 class="titulo">Crear Cuenta de Empleado</h1>
                 <form action="../../src/php/registrar_empleado.php" method="POST">
+            <?php endif;?>
                     <div class="input_group">
                         <label for="">Nombre del Empleado</label>
                         <input type="text" name="nombre">
@@ -42,7 +49,11 @@ $empleados = traer_empleados()['data'];
                         <input type="text" name="password">
                     </div>
                     <div class="input_group">
+                    <?php if(isset($_GET['id'])):?>
+                        <button type="submit">Editar Cuenta</button>
+                    <?php else:?>
                         <button type="submit">Crear Cuenta</button>
+                    <?php endif;?>
                     </div>
                 </form>
             </div>
@@ -72,8 +83,8 @@ $empleados = traer_empleados()['data'];
                                         <?php endif;?>
                                     </td>
                                     <td>
-                                        <i class="icon-pencil"></i>
-                                        <i class="icon-trash"></i>
+                                        <a href="empleados.php?id=<?= $empleado['id']?>"><i class="icon-pencil"></i></a>
+                                        <a href="#?>"><i class="icon-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
