@@ -12,6 +12,14 @@ $empleados = traer_empleados()['data'];
     <title>Empleados</title>
     <link rel="stylesheet" href="../../public/css/style-empleados.css">
     <link href="https://file.myfontastic.com/n9CfQyeKJZCBsGs6dvgkTK/icons.css" rel="stylesheet">
+    <style>
+        .icon {
+            text-decoration: none;
+        }
+        .desactivate {
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <?php require_once("templates/nav.inc.php"); ?>
@@ -58,9 +66,9 @@ $empleados = traer_empleados()['data'];
                                     <td><?= $empleado['usuario']?></td>
                                     <td>
                                         <?php if($empleado['activado'] == 1):?>
-                                            <i class="icon-check-circle"></i>
+                                            <a class="icon" href="../../src/php/desactivar_cuenta.php?id=<?= $empleado['id']?>"><i class="icon-check-circle"></i></a>
                                         <?php else:?>
-                                            <i class="icon-check-circle-o"></i>
+                                            <a class="icon desactivate" href="../../src/php/activar_cuenta.php?id=<?= $empleado['id']?>"><i class="icon-check-circle-o"></i></a>
                                         <?php endif;?>
                                     </td>
                                     <td>

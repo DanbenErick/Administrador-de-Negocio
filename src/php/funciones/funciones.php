@@ -5,6 +5,38 @@ require_once(PATH_CONN_DB);
 
 
 // Emplados
+function activar_cuenta($id) {
+    global $pdo;
+    $sql = "UPDATE empleado SET activado = 1 WHERE id=:id";
+    $update = $pdo->prepare($sql);
+    $update->bindParam(':id', $id);
+    if($update->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $update->errorInfo()
+    ];
+}
+function desactivar_cuenta($id) {
+    global $pdo;
+    $sql = "UPDATE empleado SET activado = 0 WHERE id=:id";
+    $update = $pdo->prepare($sql);
+    $update->bindParam(':id', $id);
+    if($update->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $update->errorInfo()
+    ];
+}
 function registrar_empleado($nombre, $usuario, $pass) {
     global $pdo;
     $sql = "INSERT INTO empleado (nombre, usuario, pass, rol, activado) VALUES (:nombre,:usuario,:pass, 0, 1)";
