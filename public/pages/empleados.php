@@ -13,6 +13,9 @@ $empleados = traer_empleados()['data'];
     <link rel="stylesheet" href="../../public/css/style-empleados.css">
     <link href="https://file.myfontastic.com/n9CfQyeKJZCBsGs6dvgkTK/icons.css" rel="stylesheet">
     <style>
+        a {
+            text-decoration: none;
+        }
         .icon {
             text-decoration: none;
         }

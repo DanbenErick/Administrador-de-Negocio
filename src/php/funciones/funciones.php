@@ -396,7 +396,7 @@ function registrar_cliente($nombre, $direccion, $telefono, $dni, $tipo, $creador
 }
 function editar_cliente($id, $nombre, $direccion, $telefono, $dni, $tipo) {
     global $pdo;
-    $sql = "UPDATE cliente SET nombre=:nombre, direccion=:direccion, telefono=:telefono, dni=:dni, $tipo=:tipo WHERE id=:id";
+    $sql = "UPDATE cliente SET nombre=:nombre, direccion=:direccion, telefono=:telefono, dni=:dni, tipo=:tipo WHERE id=:id";
     $update = $pdo->prepare($sql);
     $update->bindParam(":nombre", $nombre);
     $update->bindParam(":direccion", $direccion);

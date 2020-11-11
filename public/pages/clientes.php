@@ -18,9 +18,16 @@ $clientes = traer_clientes()['data'];
     <section>
         <?php require_once("templates/aside.inc.php");?>
         <main>
+        <?php if(isset($_GET['id'])):?>
+            <h1 class="titulo">Editar Cliente: <?= $clientes[$_GET['id'] - 1]['nombre'] ?></h1>
+            <div class="container_form">
+                <form action="../../src/php/editar_cliente.php" method="POST">
+                <input type="hidden" name="id" value="<?= $clientes[$_GET['id'] - 1]['id']?>">
+        <?php else:?>
             <h1 class="titulo">Agregar Cliente</h1>
             <div class="container_form">
                 <form action="../../src/php/registrar_cliente.php" method="POST">
+        <?php endif;?>
                     <div class="input_group">
                         <label for="">Nombre del Cliente</label>
                         <input type="text" name="nombre">
@@ -46,7 +53,11 @@ $clientes = traer_clientes()['data'];
                         </select>
                     </div>
                     <div class="input_group">
+                    <?php if(isset($_GET['id'])):?>
+                        <button type="submit">Editar Cliente</button>
+                    <?php else:?>
                         <button type="submit">Agregar Cliente</button>
+                    <?php endif;?>
                     </div>
                 </form>
             </div>
@@ -77,8 +88,8 @@ $clientes = traer_clientes()['data'];
                                     <?php if($_SESSION['id_rol'] == 1):?>
                                         <td><?= $cliente['id_creador'] ?></td>
                                         <td>
-                                            <i class="icon-pencil"></i>
-                                            <i class="icon-trash"></i>
+                                            <a href="clientes.php?id=<?= $cliente['id']?>"><i class="icon-pencil"></i></a>
+                                            <a href="../../src/php/eliminar_cliente.php?id=<?= $cliente['id']?>"><i class="icon-trash"></i></a>
                                         </td>
                                     <?php endif;?>
                                 </tr>
