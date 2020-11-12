@@ -174,7 +174,7 @@ function cerrar_sesion() {
 // Productos
 function traer_productos() {
     global $pdo;
-    $sql = "SELECT * FROM productos";
+    $sql = "SELECT * FROM producto";
     $select = $pdo->prepare($sql);
     if($select->execute()) {
         return [
@@ -189,6 +189,58 @@ function traer_productos() {
             'data' => null
         ];
     }
+}
+function registrar_producto($nombre, $precio, $cantidad, $categoria, $proveedor, $creador) {
+    global $pdo;
+    $sql = "INSERT INTO producto
+            (nombre, fecha_ingreso, ult_fecha_salida, precio, cantidad, id_categoria, id_creador, id_proveedor)
+            VALUES
+            (:nombre, NOW(), NOW(), :precio, :cantidad, :id_categoria, :id_creador, :id_proveedor)";
+    $insert = $pdo->prepare($sql);
+    $insert->bindParam(":nombre", $nombre);
+    $insert->bindParam(":precio", $precio);
+    $insert->bindParam(":cantidad", $cantidad);
+    $insert->bindParam(":id_categoria", $categoria);
+    $insert->bindParam(":id_proveedor", $proveedor);
+    $insert->bindParam(":id_creador", $creador);
+    if($insert->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $insert->errorInfo()
+    ];
+}
+function editar_producto($id, $nombre, $precio, $cantidad, $categoria, $proveedor) {
+    global $pdo;
+    $sql = "UPDATE producto
+            SET
+            nombre = :nombre,
+            precio = :precio,
+            cantidad = :cantidad,
+            id_categoria = :id_categoria,
+            id_proveedor = :id_proveedor
+            WHERE id = :id";
+    $insert = $pdo->prepare($sql);
+    $insert->bindParam(":nombre", $nombre);
+    $insert->bindParam(":precio", $precio);
+    $insert->bindParam(":cantidad", $cantidad);
+    $insert->bindParam(":id_categoria", $categoria);
+    $insert->bindParam(":id_proveedor", $proveedor);
+    $insert->bindParam(":id", $id);
+    if($insert->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $insert->errorInfo()
+    ];
 }
 function eliminar_producto($id) {
     global $pdo;

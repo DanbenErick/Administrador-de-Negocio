@@ -1,6 +1,10 @@
 <?php
- session_start();
- error_reporting(0);
+session_start();
+error_reporting(0);
+require_once "../../src/php/funciones/funciones.php";
+$categorias = traer_categorias()['data'];
+$proveedores = traer_proveedores()['data'];
+$productos = traer_productos()['data'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,35 +20,46 @@
     <section>
         <?php require_once("templates/aside.inc.php");?>
         <main>
+            <?php if(isset($_GET['id'])):?>
             <h1 class="titulo">Agregar Producto</h1>
             <div class="container_form">
-                <form action="">
+                <form action="../../src/php/editar_producto.php" method="POST">
+                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+            <?php else:?>
+            <h1 class="titulo">Agregar Producto</h1>
+            <div class="container_form">
+                <form action="../../src/php/registrar_producto.php" method="POST">
+            <?php endif;?>
                     <div class="input_group">
                         <label for="">Producto</label>
-                        <input type="text">
+                        <input type="text" name="nombre">
                     </div>
                     <div class="input_group">
                         <label for="">Precio</label>
-                        <input type="text">
+                        <input type="text" name="precio">
                     </div>
                     <div class="input_group">
                         <label for="">Cantidad</label>
-                        <input type="text">
+                        <input type="text" name="cantidad">
                     </div>
                     <div class="input_group">
                         <label for="">Categoria</label>
-                        <select name="" id="">
-                            <option value="">Elige uno</option>
+                        <select name="categoria" id="">
+                            <?php foreach($categorias as $categoria):?>
+                                <option value="<?= $categoria['id']?>"><?= $categoria['categoria_nombre']?></option>
+                            <?php endforeach;?>
                         </select>
                     </div>
                     <div class="input_group">
                         <label for="">Proveedor</label>
-                        <select name="" id="">
-                            <option value="">Elige uno..</option>
+                        <select name="proveedor" id="">
+                        <?php foreach($proveedores as $proveedor):?>
+                            <option value="<?= $proveedor['id']?>"><?= $proveedor['nombre']?></option>
+                        <?php endforeach;?>
                         </select>
                     </div>
                     <div class="input_group">
-                        <button>Agregar Producto</button>
+                        <button>Guardar</button>
                     </div>
                 </form>
             </div>
@@ -64,76 +79,22 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($productos as $producto):?>
                         <tr>
-                            <td>lapiz</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>Utilez de Escritorio</td>
-                            <td>CredCorp</td>
-                            <td>12/12/12</td>
-                            <td>12/12/12</td>
-                            <td>Andres</td>
+                            <td><?= $producto['nombre']?></td>
+                            <td><?= $producto['precio']?></td>
+                            <td><?= $producto['cantidad']?></td>
+                            <td><?= $producto['id_categoria']?></td>
+                            <td><?= $producto['id_proveedor']?></td>
+                            <td><?= $producto['fecha_ingreso']?></td>
+                            <td><?= $producto['ult_fecha_salida']?></td>
+                            <td><?= $producto['id_creador']?></td>
                             <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
+                                <a href="productos.php?id=<?= $producto['id']?>"><i class="icon-pencil"></i></a>
+                                <!-- <i class="icon-trash"></i> -->
                             </td>
                         </tr>
-                        <tr>
-                            <td>lapiz</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>Utilez de Escritorio</td>
-                            <td>CredCorp</td>
-                            <td>12/12/12</td>
-                            <td>12/12/12</td>
-                            <td>Andres</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>lapiz</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>Utilez de Escritorio</td>
-                            <td>CredCorp</td>
-                            <td>12/12/12</td>
-                            <td>12/12/12</td>
-                            <td>Andres</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>lapiz</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>Utilez de Escritorio</td>
-                            <td>CredCorp</td>
-                            <td>12/12/12</td>
-                            <td>12/12/12</td>
-                            <td>Andres</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>lapiz</td>
-                            <td>10</td>
-                            <td>15</td>
-                            <td>Utilez de Escritorio</td>
-                            <td>CredCorp</td>
-                            <td>12/12/12</td>
-                            <td>12/12/12</td>
-                            <td>Andres</td>
-                            <td>
-                                <i class="icon-pencil"></i>
-                                <i class="icon-trash"></i>
-                            </td>
-                        </tr>
+                    <?php endforeach;?>
                     </tbody>
                 </table>
             </div>

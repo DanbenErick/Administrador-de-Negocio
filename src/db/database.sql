@@ -48,8 +48,10 @@ CREATE TABLE Producto (
     cantidad int NOT NULL,
     id_categoria int NOT NULL,
     id_creador int NOT NULL,
+    id_proveedor int NOT NULL,
     CONSTRAINT FK_producto_categoria FOREIGN KEY (id_categoria) REFERENCES Categoria(id),
-    CONSTRAINT FK_producto_empleadoa FOREIGN KEY (id_categoria) REFERENCES Empleado(id)
+    CONSTRAINT FK_producto_empleadoa FOREIGN KEY (id_categoria) REFERENCES Empleado(id),
+    CONSTRAINT FK_producto_proveedor FOREIGN KEY (id_categoria) REFERENCES Proveedor(id)
 );
 
 CREATE TABLE Producto_Ingresados (
