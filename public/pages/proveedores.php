@@ -18,9 +18,16 @@ $proveedores = traer_proveedores()['data'];
     <section>
         <?php require_once("templates/aside.inc.php");?>
         <main>
+        <?php if(isset($_GET['id'])):?>
+            <h1 class="titulo">Editar Proveedor: <?= $proveedores[$_GET['id'] - 1]['nombre']?></h1>
+            <div class="container_form">
+                <form action="../../src/php/editar_proveedor.php" method="POST">
+                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+        <?php else:?>
             <h1 class="titulo">Agregar Proveedor</h1>
             <div class="container_form">
                 <form action="../../src/php/registrar_proveedor.php" method="POST">
+        <?php endif;?>
                     <div class="input_group">
                         <label for="">Nombre de la Empresa</label>
                         <input type="text" name="nombre">
@@ -34,7 +41,11 @@ $proveedores = traer_proveedores()['data'];
                         <input type="text" name="telefono">
                     </div>
                     <div class="input_group">
+                    <?php if(isset($_GET['id'])):?>
+                        <button type="submit">Editar Proveedor</button>
+                    <?php else:?>
                         <button type="submit">Agregar Proveedor</button>
+                    <?php endif;?>
                     </div>
                 </form>
             </div>
@@ -60,8 +71,8 @@ $proveedores = traer_proveedores()['data'];
                                     <?php if($_SESSION['id_rol'] == 1):?>
                                         <td><?= $proveedor['id_creador']?></td>
                                         <td>
-                                            <i class="icon-pencil"></i>
-                                            <i class="icon-trash"></i>
+                                            <a href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
+                                            <a href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
                                         </td>
                                     <?php endif;?>
                                 </tr>

@@ -316,6 +316,7 @@ function registrar_proveedor($nombre, $direccion, $telefono, $creador) {
     ];
 }
 function editar_proveedor($id, $nombre, $direccion, $telefono) {
+    global $pdo;
     $sql = "UPDATE proveedor SET nombre=:nombre, direccion=:direccion, telefono=:telefono WHERE id=:id";
     $update = $pdo->prepare($sql);
     $update->bindParam(":nombre", $nombre);

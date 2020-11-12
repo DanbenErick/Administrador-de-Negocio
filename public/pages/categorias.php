@@ -18,15 +18,26 @@ $categorias = traer_categorias()['data'];
     <section>
         <?php require_once("templates/aside.inc.php");?>
         <main>
+        <?php if(isset($_GET['id'])):?>
+            <h1 class="titulo">Editar Categoria:  <?= $categorias[$_GET['id'] - 1]['categoria_nombre']?></h1>
+            <div class="container_form">
+                <form action="../../src/php/editar_categoria.php" method="POST">
+                <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+        <?php else:?>
             <h1 class="titulo">Agregar Categoria</h1>
             <div class="container_form">
                 <form action="../../src/php/registrar_categoria.php" method="POST">
+        <?php endif;?>
                     <div class="input_group">
                         <label for="nombre_categoria">Nombre de la Categoria</label>
                         <input type="text" id="nombre_categoria" name="nombre_categoria">
                     </div>
                     <div class="input_group">
-                        <button type="submit">Registrar Categorias</button>
+                    <?php if(isset($_GET['id'])):?>
+                        <button type="submit">Editar Categoria</button>
+                    <?php else:?>
+                        <button type="submit">Registrar Categoria</button>
+                    <?php endif;?>
                     </div>
                 </form>
             </div>
@@ -48,8 +59,8 @@ $categorias = traer_categorias()['data'];
                                 <td><?= $categoria['id_creador']?></td>
                                 <?php if($_SESSION['id_rol'] == 1):?>
                                     <td>
-                                        <i class="icon-pencil"></i>
-                                        <i class="icon-trash"></i>
+                                        <a href="categorias.php?id=<?= $categoria['id']?>"><i class="icon-pencil"></i></a>
+                                        <a href="../../src/php/eliminar_categoria.php?id=<?= $categoria['id']?>"><i class="icon-trash"></i></a>
                                     </td>
                                 <?php endif;?>
                             </tr>    
