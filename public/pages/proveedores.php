@@ -3,6 +3,7 @@ session_start();
 error_reporting(0);
 require_once "../../src/php/funciones/funciones.php";
 $proveedores = traer_proveedores()['data'];
+if(isset($_SESSION['id_usuario'])):
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -68,8 +69,10 @@ $proveedores = traer_proveedores()['data'];
                             <th>Empresa</th>
                             <th>Direccion</th>
                             <th>Telefono</th>
-                            <th>Creador</th>
-                            <th></th>
+                            <?php if($_SESSION['id_rol'] == 1):?>
+                                <th>Creador</th>
+                                <th></th>
+                            <?php endif;?>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,7 +83,7 @@ $proveedores = traer_proveedores()['data'];
                                     <td><?= $proveedor['direccion']?></td>
                                     <td><?= $proveedor['telefono']?></td>
                                     <?php if($_SESSION['id_rol'] == 1):?>
-                                        <td><?= $proveedor['id_creador']?></td>
+                                        <td><?= $proveedor[0]?></td>
                                         <td>
                                             <a href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
                                             <a href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
@@ -96,3 +99,5 @@ $proveedores = traer_proveedores()['data'];
     </section>
 </body>
 </html>
+<?php else: header("Location: ../../index.php"); ?>
+<?php endif; ?>

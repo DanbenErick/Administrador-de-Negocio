@@ -3,6 +3,7 @@ session_start();
 error_reporting(0);
 require_once "../../src/php/funciones/funciones.php";
 $empleados = traer_empleados()['data'];
+if(isset($_SESSION['id_usuario']) && $_SESSION['id_rol'] == 1):
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -113,3 +114,5 @@ $empleados = traer_empleados()['data'];
     <script src="../js/empleados.js"></script>
 </body>
 </html>
+<?php else: header("Location: ../../index.php")?>
+<?php endif;?>

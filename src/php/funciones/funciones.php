@@ -174,7 +174,14 @@ function cerrar_sesion() {
 // Productos
 function traer_productos() {
     global $pdo;
-    $sql = "SELECT * FROM producto";
+    $sql = "SELECT e.id, e.nombre AS nombreEmpleado,
+                    pr.id, pr.nombre AS nombreProveedor,
+                    ct.id, ct.categoria_nombre as nombreCategoria,
+                    p.*
+                FROM producto as p
+                INNER JOIN empleado as e ON e.id = p.id_creador
+                INNER JOIN proveedor as pr ON pr.id = p.id_proveedor
+                INNER JOIN categoria as ct ON ct.id = p.id_categoria";
     $select = $pdo->prepare($sql);
     if($select->execute()) {
         return [
@@ -279,7 +286,7 @@ function registrar_categoria($categoria, $id_creador) {
 }
 function traer_categorias() {
     global $pdo;
-    $sql = "SELECT * FROM categoria";
+    $sql = "SELECT e.nombre, c.* FROM empleado e INNER JOIN categoria c ON e.id = c.id_creador";
     $select = $pdo->prepare($sql);
     if($select->execute()) {
         return [
@@ -332,7 +339,7 @@ function eliminar_categoria($id) {
 // Proveedor
 function traer_proveedores() {
     global $pdo;
-    $sql = "SELECT * FROM proveedor";
+    $sql = "SELECT e.nombre, p.* FROM empleado e INNER JOIN proveedor p ON e.id = p.id_creador";
     $select = $pdo->prepare($sql);
     if($select->execute()) {
         return [
@@ -407,7 +414,7 @@ function eliminar_proveedor($id) {
 // Clientes
 function traer_clientes() {
     global $pdo;
-    $sql = "SELECT * FROM cliente";
+    $sql = "SELECT e.nombre, c.* FROM empleado e INNER JOIN cliente c ON e.id = c.id_creador";
     $select = $pdo->prepare($sql);
     if($select->execute()) {
         return [
