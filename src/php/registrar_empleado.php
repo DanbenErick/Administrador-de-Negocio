@@ -7,7 +7,7 @@ $pass = $_POST['password'];
 
 
 if(registrar_empleado($nombre, $usuario, $pass)['ok']) {
-    header('Location: ../../public/pages/panel.php');
+    header('Location: ../../public/pages/empleados.php');
 }
 echo "Ocurrio un error";
 

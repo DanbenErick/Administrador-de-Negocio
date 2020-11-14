@@ -5,7 +5,7 @@ require_once "funciones/funciones.php";
 
 if(registrar_categoria($categoria, $_SESSION['id_usuario'])['ok']) {
     echo "Registro correcto";
-    header("Location: ../../index.php");
+    header("Location: ../../public/pages/categorias.php");
 }else {
     echo "Ocurrio un error al registro";
     // var_dump()

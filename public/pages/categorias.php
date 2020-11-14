@@ -19,7 +19,17 @@ $categorias = traer_categorias()['data'];
         <?php require_once("templates/aside.inc.php");?>
         <main>
         <?php if(isset($_GET['id'])):?>
-            <h1 class="titulo">Editar Categoria:  <?= $categorias[$_GET['id'] - 1]['categoria_nombre']?></h1>
+            <h1 class="titulo">Editar Categoria:   <?php 
+                
+                /* Inicio */
+               foreach($categorias as $categoria):?>
+                        <?php 
+                        if($categoria['id'] == $_GET[id]){
+                            ?>  <td><?= $categoria['categoria_nombre']?></td>
+                        <?php }
+                        ?>
+                <?php endforeach;?>
+                </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_categoria.php" method="POST">
                 <input type="hidden" name="id" value="<?= $_GET['id'] ?>">

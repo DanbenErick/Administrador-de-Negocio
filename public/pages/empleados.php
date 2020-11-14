@@ -32,7 +32,18 @@ $empleados = traer_empleados()['data'];
             
             <div class="container_form">
             <?php if(isset($_GET['id'])):?>
-                <h1 class="titulo">Editar Cuenta de Empleado: <?= $empleados[$_GET['id'] - 2]['nombre']?></h1>
+                <h1 class="titulo">Editar Cuenta de Empleado: 
+                <?php 
+                
+                /* Inicio */
+               foreach($empleados as $empleado):?>
+                        <?php 
+                        if($empleado['id'] == $_GET[id]){
+                            ?>  <td><?= $empleado['nombre']?></td>
+                        <?php }
+                        ?>
+                <?php endforeach;?>
+                </h1>
                 <form action="../../src/php/editar_empleado.php" method="POST">
                 <input type="hidden" name="id" value="<?= $_GET['id']?>">
             <?php else:?>

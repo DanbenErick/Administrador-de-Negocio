@@ -21,7 +21,18 @@ $productos = traer_productos()['data'];
         <?php require_once("templates/aside.inc.php");?>
         <main>
             <?php if(isset($_GET['id'])):?>
-            <h1 class="titulo">Agregar Producto</h1>
+            <h1 class="titulo">Editar Producto: 
+            <?php 
+                
+                /* Inicio */
+               foreach($productos as $producto):?>
+                        <?php 
+                        if($producto['id'] == $_GET[id]){
+                            ?>  <td><?= $producto['nombre']?></td>
+                        <?php }
+                        ?>
+                <?php endforeach;?>
+            </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_producto.php" method="POST">
                 <input type="hidden" name="id" value="<?= $_GET['id']?>">
@@ -91,6 +102,7 @@ $productos = traer_productos()['data'];
                             <td><?= $producto['id_creador']?></td>
                             <td>
                                 <a href="productos.php?id=<?= $producto['id']?>"><i class="icon-pencil"></i></a>
+                                <a href="../../src/php/eliminar_producto.php?id=<?= $producto['id']?>"><i class="icon-trash"></i></a>
                                 <!-- <i class="icon-trash"></i> -->
                             </td>
                         </tr>
