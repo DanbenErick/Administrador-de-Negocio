@@ -19,7 +19,18 @@ $proveedores = traer_proveedores()['data'];
         <?php require_once("templates/aside.inc.php");?>
         <main>
         <?php if(isset($_GET['id'])):?>
-            <h1 class="titulo">Editar Proveedor: <?= $proveedores[$_GET['id'] - 1]['nombre']?></h1>
+            <h1 class="titulo">Editar Proveedor: <?php 
+                
+                /* Inicio */
+               foreach($proveedores as $proveedor):?>
+                        <?php 
+                        if($proveedor['id'] == $_GET[id]){
+                            ?>  <td><?= $proveedor['nombre']?></td>
+                        <?php }
+                        ?>
+                <?php endforeach;?>
+             <!-- Fin -->
+             </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_proveedor.php" method="POST">
                 <input type="hidden" name="id" value="<?= $_GET['id']?>">
