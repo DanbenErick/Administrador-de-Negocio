@@ -64,7 +64,7 @@ CREATE TABLE Producto_Ingresados (
     CONSTRAINT fk_producto_ing_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
-CREATE TABLE Producto_Egresados (
+CREATE TABLE Venta (
     id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
     cantidad int NOT NULL,
     fecha_salida date NOT NULL,
