@@ -519,6 +519,41 @@ function traer_ventas() {
     ];
 }
 
+function traer_producto_venta (){
+    global $pdo;
+    $sql = "SELECT id, nombre FROM producto";
+    $select = $pdo->prepare($sql);
+    if($select->execute()) {
+        return [
+            'ok' => true,
+            'data' => $select->fetchAll(),
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'data' => null,
+        'error' => $select->errorInfo()
+    ];
+}
+function traer_cliente_venta() {
+    global $pdo;
+    $sql = "SELECT id, nombre FROM cliente";
+    $select = $pdo->prepare($sql);
+    if($select->execute()) {
+        return [
+            'ok' => true,
+            'data' => $select->fetchAll(),
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'data' => null,
+        'error' => $select->errorInfo()
+    ];
+}
+
 function registrar_venta($id_producto, $id_cliente, $cantidad, $creador) {
     global $pdo;
     $sql = "INSERT INTO venta (cantidad, fecha_salida, id_producto, id_cliente, id_creador) VALUES (:cantidad, NOW(), :id_producto, :id_cliente, :id_creador)";
