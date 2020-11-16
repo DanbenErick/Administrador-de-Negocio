@@ -2,6 +2,7 @@
     <ul>
         <li><a href="panel.php">Inicio</a></li>
         <li><a href="productos.php">Productos</a></li>
+        <li><a href="vender.php">Vender</a></li>
         <li><a href="categorias.php">Categorias</a></li>
         <li><a href="proveedores.php">Proveedores</a></li>
         <li><a href="clientes.php">Clientes</a></li>
