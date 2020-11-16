@@ -59,10 +59,8 @@ CREATE TABLE Producto_Ingresados (
     cantidad int NOT NULL,
     fecha_ingreso date NOT NULL,
     id_producto int NOT NULL,
-    id_proveedor int NOt NULL,
     id_creador int NOT NULL,
     CONSTRAINT fk_producto_ing_producto FOREIGN KEY (id_producto) REFERENCES Producto(id),
-    CONSTRAINT fk_producto_ing_proveedor FOREIGN KEY (id_proveedor) REFERENCES Proveedor(id),
     CONSTRAINT fk_producto_ing_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
@@ -71,10 +69,8 @@ CREATE TABLE Producto_Egresados (
     cantidad int NOT NULL,
     fecha_salida date NOT NULL,
     id_producto int NOT NULL,
-    id_proveedor int NOT NULL,
     id_creador int NOT NULL,
     CONSTRAINT FK_productoEgre_producto FOREIGN KEY (id_producto) REFERENCES Producto(id),
-    CONSTRAINT FK_productoEgre_proveedor FOREIGN KEY (id_proveedor) REFERENCES Proveedor(id),
     CONSTRAINT FK_productoEgre_empleado FOREIGN KEY (id_creador) REFERENCES Empleado(id)
 );
 
