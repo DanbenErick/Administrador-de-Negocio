@@ -86,7 +86,7 @@ if(isset($_SESSION['id_usuario'])):
                                         <td><?= $proveedor[0]?></td>
                                         <td>
                                             <a href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
-                                            <a href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
+                                            <a class="delete" href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
                                         </td>
                                     <?php endif;?>
                                 </tr>
@@ -97,6 +97,7 @@ if(isset($_SESSION['id_usuario'])):
             </div>
         </main>
     </section>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 <?php else: header("Location: ../../index.php"); ?>

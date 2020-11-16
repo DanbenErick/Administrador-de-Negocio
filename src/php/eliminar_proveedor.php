@@ -7,10 +7,10 @@ $id = $_GET['id'];
 $proveedor = eliminar_proveedor($id);
 
 if($proveedor['ok']) {
-    header('Location: ../../public/proveedores.php');
+    header('Location: ../../public/pages/proveedores.php');
 }else {
     var_dump($proveedor);
-    header('Location: ../../public/proveedores.php');
+    header('Location: ../../public/pages/proveedores.php');
 }
 
 ?>

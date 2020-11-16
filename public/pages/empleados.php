@@ -99,7 +99,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_rol'] == 1):
                                     </td>
                                     <td>
                                         <a href="empleados.php?id=<?= $empleado['id']?>"><i class="icon-pencil"></i></a>
-                                        <a class="delete_empleados" href="../../src/php/eliminar_empleado.php?id=<?= $empleado['id']?>"><i class="icon-trash"></i></a>
+                                        <a class="delete" href="../../src/php/eliminar_empleado.php?id=<?= $empleado['id']?>"><i class="icon-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach;?>
@@ -111,7 +111,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_rol'] == 1):
             </div>
         </main>
     </section>
-    <script src="../js/empleados.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 <?php else: header("Location: ../../index.php")?>

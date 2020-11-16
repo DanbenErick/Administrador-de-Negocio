@@ -103,7 +103,7 @@ if(isset($_SESSION['id_usuario'])):
                             <td><?= $producto['nombreEmpleado']?></td>
                             <td>
                                 <a href="productos.php?id=<?= $producto['id']?>"><i class="icon-pencil"></i></a>
-                                <a href="../../src/php/eliminar_producto.php?id=<?= $producto['id']?>"><i class="icon-trash"></i></a>
+                                <a class="delete" href="../../src/php/eliminar_producto.php?id=<?= $producto['id']?>"><i class="icon-trash"></i></a>
                                 <!-- <i class="icon-trash"></i> -->
                             </td>
                         </tr>
@@ -113,6 +113,7 @@ if(isset($_SESSION['id_usuario'])):
             </div>
         </main>
     </section>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 <?php else: header("Location: ../../index.php"); ?>
