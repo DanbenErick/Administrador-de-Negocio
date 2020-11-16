@@ -34,7 +34,7 @@ if(isset($_SESSION['id_usuario'])):
             </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_cliente.php" method="POST">
-                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+                <input required type="hidden" name="id" value="<?= $_GET['id']?>">
         <?php else:?>
             <h1 class="titulo">Agregar Cliente</h1>
             <div class="container_form">
@@ -42,19 +42,19 @@ if(isset($_SESSION['id_usuario'])):
         <?php endif;?>
                     <div class="input_group">
                         <label for="">Nombre del Cliente</label>
-                        <input type="text" name="nombre">
+                        <input required type="text" name="nombre">
                     </div>
                     <div class="input_group">
                         <label for="">Direccion del Cliente</label>
-                        <input type="text" name="direccion">
+                        <input required type="text" name="direccion">
                     </div>
                     <div class="input_group">
                         <label for="">Telefono del Cliente</label>
-                        <input type="text" name="telefono">
+                        <input required type="tel" name="telefono">
                     </div>
                     <div class="input_group">
                         <label for="">DNI del Cliente</label>
-                        <input type="text" name="dni">
+                        <input required type="number"  maxlength="8" name="dni">
                     </div>
                     <div class="input_group">
                         <label for="">Tipo de Clietne</label>

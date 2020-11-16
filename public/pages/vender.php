@@ -35,7 +35,7 @@
                     </div>
                     <div class="input_group">
                         <label for="cantidad">Cantidad</label>
-                        <input type="text">
+                        <input required type="number">
                     </div>
                     <div class="input_group">
                          <button type="submit">Guardar Cambios</button>

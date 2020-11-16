@@ -34,7 +34,7 @@ if(isset($_SESSION['id_usuario'])):
              </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_proveedor.php" method="POST">
-                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+                <input required type="hidden" name="id" value="<?= $_GET['id']?>">
         <?php else:?>
             <h1 class="titulo">Agregar Proveedor</h1>
             <div class="container_form">
@@ -42,15 +42,15 @@ if(isset($_SESSION['id_usuario'])):
         <?php endif;?>
                     <div class="input_group">
                         <label for="">Nombre de la Empresa</label>
-                        <input type="text" name="nombre">
+                        <input required type="text" name="nombre">
                     </div>
                     <div class="input_group">
                         <label for="">Direccion de la Empresa</label>
-                        <input type="text" name="direccion">
+                        <input required type="text" name="direccion">
                     </div>
                     <div class="input_group">
                         <label for="">Telefono de la Empresa</label>
-                        <input type="text" name="telefono">
+                        <input required type="tel" name="telefono">
                     </div>
                     <div class="input_group">
                     <?php if(isset($_GET['id'])):?>

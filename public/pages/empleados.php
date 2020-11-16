@@ -46,22 +46,22 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_rol'] == 1):
                 <?php endforeach;?>
                 </h1>
                 <form action="../../src/php/editar_empleado.php" method="POST">
-                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+                <input required type="hidden" name="id" value="<?= $_GET['id']?>">
             <?php else:?>
                 <h1 class="titulo">Crear Cuenta de Empleado</h1>
                 <form action="../../src/php/registrar_empleado.php" method="POST">
             <?php endif;?>
                     <div class="input_group">
                         <label for="">Nombre del Empleado</label>
-                        <input type="text" name="nombre">
+                        <input required type="text" name="nombre">
                     </div>
                     <div class="input_group">
                         <label for="">Usuario del Empleado</label>
-                        <input type="text" name="usuario">
+                        <input required type="text" name="usuario">
                     </div>
                     <div class="input_group">
                         <label for="">Contraseña del Empleado</label>
-                        <input type="text" name="password">
+                        <input required type="text" name="password">
                     </div>
                     <div class="input_group">
                     <?php if(isset($_GET['id'])):?>

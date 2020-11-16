@@ -36,7 +36,7 @@ if(isset($_SESSION['id_usuario'])):
             </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_producto.php" method="POST">
-                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+                <input required type="hidden" name="id" value="<?= $_GET['id']?>">
             <?php else:?>
             <h1 class="titulo">Agregar Producto</h1>
             <div class="container_form">
@@ -44,15 +44,15 @@ if(isset($_SESSION['id_usuario'])):
             <?php endif;?>
                     <div class="input_group">
                         <label for="">Producto</label>
-                        <input type="text" name="nombre">
+                        <input required type="text" name="nombre">
                     </div>
                     <div class="input_group">
                         <label for="">Precio</label>
-                        <input type="text" name="precio">
+                        <input required type="text" name="precio">
                     </div>
                     <div class="input_group">
                         <label for="">Cantidad</label>
-                        <input type="text" name="cantidad">
+                        <input required type="text" name="cantidad">
                     </div>
                     <div class="input_group">
                         <label for="">Categoria</label>

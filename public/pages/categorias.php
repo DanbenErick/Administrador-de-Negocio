@@ -33,7 +33,7 @@ if(isset($_SESSION['id_usuario'])):
                 </h1>
             <div class="container_form">
                 <form action="../../src/php/editar_categoria.php" method="POST">
-                <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+                <input type="hidden" required name="id" value="<?= $_GET['id'] ?>">
         <?php else:?>
             <h1 class="titulo">Agregar Categoria</h1>
             <div class="container_form">
@@ -41,7 +41,7 @@ if(isset($_SESSION['id_usuario'])):
         <?php endif;?>
                     <div class="input_group">
                         <label for="nombre_categoria">Nombre de la Categoria</label>
-                        <input type="text" id="nombre_categoria" name="nombre_categoria">
+                        <input required type="text" id="nombre_categoria" name="nombre_categoria">
                     </div>
                     <div class="input_group">
                     <?php if(isset($_GET['id'])):?>

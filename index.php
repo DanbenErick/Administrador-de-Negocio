@@ -20,12 +20,12 @@
                 <form method="POST" id="formulario" action="src/php/login.php">
                     <div class="input_group">
                         <label for="usuario">Usuario</label>
-                        <input type="text" id="usuario" name="usuario">
+                        <input type="text" required id="usuario" name="usuario">
                         <label for="errorU" id="errorU"></label>
                     </div>
                     <div class="input_group">
                         <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password">
+                        <input type="password" required id="password" name="password">
                         <label for="errorP" id="errorP"></label>
                     </div>
                     <div class="input_group">
