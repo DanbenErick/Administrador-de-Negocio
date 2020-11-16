@@ -8,12 +8,15 @@ $cantidad = $_POST['cantidad'];
 $categoria = $_POST['categoria'];
 $proveedor = $_POST['proveedor'];
 
-$producto = registrar_producto($nombre, $precio, $cantidad, $categoria, $proveedor, $_SESSION['id_usuario']);
-
-if($producto['ok']) {
-    header("Location: ../../public/pages/productos.php");
-}else {
-
+if(detectar_vacio($nombre, $precio, $cantidad, $categoria, $proveedor)) {
+    $producto = registrar_producto($nombre, $precio, $cantidad, $categoria, $proveedor, $_SESSION['id_usuario']);
+    if($producto['ok']) {
+        header("Location: ../../public/pages/productos.php");
+    }else {
+        header("Location: ../../public/pages/productos.php");
+        var_dump($producto);
+    }
 }
+
 
 ?>

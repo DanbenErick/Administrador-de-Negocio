@@ -39,7 +39,4 @@
     <noscript>Es nesesario tener activado el JS</noscript>
 </body>
 </html>
-<?php else: ?>
-    <h1>Ya iniciaste sesion</h1>
-    <?= $_SESSION['nombre']?>
-<?php endif;?>
+<?php else: header('Location: public/pages/panel.php'); endif;?>

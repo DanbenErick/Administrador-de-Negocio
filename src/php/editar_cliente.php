@@ -9,14 +9,13 @@ $telefono = $_POST['telefono'];
 $dni = $_POST['dni'];
 $tipo = $_POST['tipo'];
 
-
-$cliente = editar_cliente($id,$nombre, $direccion, $telefono, $dni, $tipo);
-
-if($cliente['ok']) {
-    header('Location: ../../public/pages/clientes.php');
-}else {
-    var_dump($cliente);
-    // header('Location: ../../public/pages/clientes.php');
+if(detectar_vacio($id, $nombre, $direccion, $telefono, $dni, $tipo)) {
+    $cliente = editar_cliente($id,$nombre, $direccion, $telefono, $dni, $tipo);
+    if($cliente['ok']) {
+        header('Location: ../../public/pages/clientes.php');
+    }else {
+        var_dump($cliente);
+        // header('Location: ../../public/pages/clientes.php');
+    }
 }
-
 ?>

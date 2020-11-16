@@ -3,6 +3,7 @@ session_start();
 error_reporting(0);
 require_once "../../src/php/funciones/funciones.php";
 $categorias = traer_categorias()['data'];
+if(isset($_SESSION['id_usuario'])):
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,8 +58,10 @@ $categorias = traer_categorias()['data'];
                     <thead>
                         <tr>
                             <th>Nombre de la Categoria</th>
-                            <th>Creador</th>
-                            <th></th>
+                            <?php if($_SESSION['id_rol'] == 1):?>
+                                <th>Creador</th>
+                                <th>Acciones</th>
+                            <?php endif;?>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,11 +69,11 @@ $categorias = traer_categorias()['data'];
                         <?php foreach($categorias as $categoria):?>
                             <tr>
                                 <td><?= $categoria['categoria_nombre']?></td>
-                                <td><?= $categoria['id_creador']?></td>
                                 <?php if($_SESSION['id_rol'] == 1):?>
+                                <td><?= $categoria['nombre']?></td>
                                     <td>
                                         <a href="categorias.php?id=<?= $categoria['id']?>"><i class="icon-pencil"></i></a>
-                                        <a href="../../src/php/eliminar_categoria.php?id=<?= $categoria['id']?>"><i class="icon-trash"></i></a>
+                                        <a class="delete" href="../../src/php/eliminar_categoria.php?id=<?= $categoria['id']?>"><i class="icon-trash"></i></a>
                                     </td>
                                 <?php endif;?>
                             </tr>    
@@ -81,5 +84,8 @@ $categorias = traer_categorias()['data'];
             </div>
         </main>
     </section>
+    <script src="../js/script.js"></script>
 </body>
 </html>
+<?php else: header("Location: ../../index.php");?>
+<?php endif;?>

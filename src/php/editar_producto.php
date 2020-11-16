@@ -9,13 +9,14 @@ $cantidad = $_POST['cantidad'];
 $categoria = $_POST['categoria'];
 $proveedor = $_POST['proveedor'];
 
-$producto = editar_producto($id, $nombre, $precio, $cantidad, $categoria, $proveedor);
-
-if($producto['ok']) {
-    header("Location: ../../public/pages/productos.php");
-}else {
-    var_dump($producto);
-    // header("Location: ../../public/pages/productos.php");
+if(detectar_vacio($id, $nombre, $precio, $cantidad, $categoria, $proveedor)) {
+    $producto = editar_producto($id, $nombre, $precio, $cantidad, $categoria, $proveedor);
+    if($producto['ok']) {
+        header("Location: ../../public/pages/productos.php");
+    }else {
+        var_dump($producto);
+        // header("Location: ../../public/pages/productos.php");
+    }
 }
 
 ?>

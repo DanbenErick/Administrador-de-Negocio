@@ -1,5 +1,7 @@
 <?php
 
+require_once 'funciones/funciones.php';
+
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 require_once 'funciones/funciones.php';
@@ -9,7 +11,4 @@ if($login['ok']) {
 }else {
 	header("Location: index.php");
 }
-// var_dump($login);
-// echo "Ocurrio un error";
-
 ?>

@@ -1,14 +1,17 @@
 <?php
 session_start();
-$categoria = $_POST['nombre_categoria'];
 require_once "funciones/funciones.php";
 
-if(registrar_categoria($categoria, $_SESSION['id_usuario'])['ok']) {
-    echo "Registro correcto";
-    header("Location: ../../public/pages/categorias.php");
-}else {
-    echo "Ocurrio un error al registro";
-    // var_dump()
+$categoria = $_POST['nombre_categoria'];
+
+if(detectar_vacio($categoria)) {
+    if(registrar_categoria($categoria, $_SESSION['id_usuario'])['ok']) {
+        echo "Registro correcto";
+        header("Location: ../../public/pages/categorias.php");
+    }else {
+        echo "Ocurrio un error al registro";
+        // var_dump()
+    }
 }
 
 ?>

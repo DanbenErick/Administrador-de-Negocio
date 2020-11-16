@@ -5,6 +5,7 @@ require_once "../../src/php/funciones/funciones.php";
 $categorias = traer_categorias()['data'];
 $proveedores = traer_proveedores()['data'];
 $productos = traer_productos()['data'];
+if(isset($_SESSION['id_usuario'])):
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -95,14 +96,14 @@ $productos = traer_productos()['data'];
                             <td><?= $producto['nombre']?></td>
                             <td><?= $producto['precio']?></td>
                             <td><?= $producto['cantidad']?></td>
-                            <td><?= $producto['id_categoria']?></td>
-                            <td><?= $producto['id_proveedor']?></td>
+                            <td><?= $producto['nombreCategoria']?></td>
+                            <td><?= $producto['nombreProveedor']?></td>
                             <td><?= $producto['fecha_ingreso']?></td>
                             <td><?= $producto['ult_fecha_salida']?></td>
-                            <td><?= $producto['id_creador']?></td>
+                            <td><?= $producto['nombreEmpleado']?></td>
                             <td>
                                 <a href="productos.php?id=<?= $producto['id']?>"><i class="icon-pencil"></i></a>
-                                <a href="../../src/php/eliminar_producto.php?id=<?= $producto['id']?>"><i class="icon-trash"></i></a>
+                                <a class="delete" href="../../src/php/eliminar_producto.php?id=<?= $producto['id']?>"><i class="icon-trash"></i></a>
                                 <!-- <i class="icon-trash"></i> -->
                             </td>
                         </tr>
@@ -112,5 +113,8 @@ $productos = traer_productos()['data'];
             </div>
         </main>
     </section>
+    <script src="../js/script.js"></script>
 </body>
 </html>
+<?php else: header("Location: ../../index.php"); ?>
+<?php endif; ?>
