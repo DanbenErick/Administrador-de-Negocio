@@ -492,6 +492,88 @@ function eliminar_cliente($id) {
     ];
 }
 
+// Ventas
+
+
+function traer_ventas() {
+    global $pdo;
+    $sql = "SELECT e.id, e.nombre AS nombreEmpleado,
+    pr.id, pr.nombre AS nombreProducto, pr.cantidad AS cantidadProducto, pr.precio as precioProducto,
+    cl.id, cl.nombre AS nombreCliente,
+    ve.*
+    FROM venta as ve
+    INNER JOIN empleado as e ON e.id = ve.id_creador
+    INNER JOIN producto as pr ON pr.id = ve.id_producto
+    INNER JOIN cliente as cl ON cl.id = ve.id_cliente";
+    $select = $pdo->prepare($sql);
+    if($select->execute()) {
+        return [
+            'ok' => true,
+            'data' => $select->fetchAll(),
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $select->errorInfo()
+    ];
+}
+
+function registrar_venta($id_producto, $id_cliente, $cantidad, $creador) {
+    global $pdo;
+    $sql = "INSERT INTO venta (cantidad, fecha_salida, id_producto, id_cliente, id_creador) VALUES (:cantidad, NOW(), :id_producto, :id_cliente, :id_creador)";
+    $insert = $pdo->prepare($sql);
+    $insert->bindParam(":cantidad", $cantidad);
+    $insert->bindParam(":id_producto", $id_producto);
+    $insert->bindParam(":id_cliente", $id_cliente);
+    $insert->bindParam(":id_creador", $id_creador);
+    if($insert->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $insert->errorInfo()
+    ];
+}
+function editar_venta($id_venta ,$id_producto, $id_cliente, $cantidad) {
+    global $pdo;
+    $sql = "UPDATE venta SET cantidad=:cantidad, id_producto=:id_producto, id_cliente=:id_cliente WHERE id=:id";
+    $update = $pdo->prepare($sql);
+    $update->bindParam(":cantidad", $cantidad);
+    $update->bindParam(":id_producto", $id_producto);
+    $update->bindParam(":id_cliente", $id_cliente);
+    $update->bindParam(":id", $id_venta);
+    if($update->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $update->errorInfo()
+    ];
+}
+function eliminar_venta($id) {
+    global $pdo;
+    $sql = "DELETE FROM venta WHERE id = :id";
+    $delete = $pdo->prepare($sql);
+    $delete->bindParam(":id", $id);
+    if($delete->execute()) {
+        return [
+            'ok' => true,
+            'error' => null
+        ];
+    }
+    return [
+        'ok' => false,
+        'error' => $delete->errorInfo()
+    ];
+}
+
 function detectar_vacio(...$variables) {
 
     foreach($variables as $valor) {

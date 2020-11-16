@@ -49,6 +49,7 @@
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Precio</th>
+                            <th>Cliente</th>
                             <th>Fecha</th>
                             <th>Creador</th>
                             <th>Acciones</th>
@@ -59,6 +60,7 @@
                             <td>Lapiz</td>
                             <td>10</td>
                             <td>10</td>
+                            <td>Andres Manuel</td>
                             <td>10/10/10</td>
                             <td>Administrador</td>
                             <td>
