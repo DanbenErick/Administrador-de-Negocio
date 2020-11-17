@@ -20,6 +20,7 @@
            
         </main>
     </section>
+    <?php require_once "templates/boton.inc.php";?>
 </body>
 </html>
 <?php else: header("Location: ../../index.php")?>

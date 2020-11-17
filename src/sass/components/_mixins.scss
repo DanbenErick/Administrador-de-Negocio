@@ -25,13 +25,17 @@
         button{
             border: none;
             background: none;
-            background: $color_primario;
+            background: $color_boton;
             color: white;
             padding: 8px 100px;
             font-size: 12px;
             &:hover {
                 cursor: pointer;
                 background: darken($color_primario, 5);
+            }
+            @media screen and(max-width: 480px) {
+                padding: 8px 0;
+                width: 100%;
             }
         }
 
@@ -83,6 +87,7 @@
         }
       }
 }
+
 
 @mixin separate_title {
     

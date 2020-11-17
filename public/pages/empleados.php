@@ -111,6 +111,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_rol'] == 1):
             </div>
         </main>
     </section>
+    <?php require_once "templates/boton.inc.php";?>
     <script src="../js/script.js"></script>
 </body>
 </html>

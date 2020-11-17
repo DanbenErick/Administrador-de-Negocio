@@ -3,30 +3,16 @@ section {
     display: grid;
     margin-top: 38px;
     grid-template-columns: 15% 85%;
-}
-@media screen and (max-width: 600px) {
-    section{
-        display: block;
+    @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;;
     }
 }
-@media screen and (max-width: 600px) {
-    #nav:target {
-        display: none;
-    }
-}
-
-@media(min-width: 768px) {
-    aside{
-        height: calc(100vh - 38px);
-        position: sticky;
-    }    
-}
-
 aside {
     background: $color_primario;
     width: 100%;
     top: 38px;
     z-index: 1000;
+    height: calc(100vh - 38px);
     ul {
         li {
             a {
@@ -41,5 +27,12 @@ aside {
                 }
             }
         }
+    }
+    @media screen and (max-width: 480px) {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin-top: 38px;
     }
 }

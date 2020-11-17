@@ -35,7 +35,7 @@
             </div>
         </div>
     </section>
-    <script type="text/javascript" src="src/js/validacion.js"></script>
+    <script src="js/validacion.js"></script>
     <noscript>Es nesesario tener activado el JS</noscript>
 </body>
 </html>

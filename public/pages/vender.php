@@ -99,6 +99,8 @@
             </div>
         </main>
     </section>
+    <?php require_once "templates/boton.inc.php";?>
+    <script src="../js/script.js"></script>
 </body>
 </html>
 <?php else: header("Location: ../../index.php");?>
