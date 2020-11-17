@@ -2,10 +2,10 @@
     session_start();
     error_reporting(0);
     require_once "../../src/php/funciones/funciones.php";
-    if(isset($_SESSION['id_usuario'])):
     $productos = traer_producto_venta()['data'];
     $clientes = traer_cliente_venta()['data'];
     $ventas = traer_ventas()['data'];
+    if(isset($_SESSION['id_usuario'])):
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,9 +21,16 @@
     <section>
         <?php require_once("templates/aside.inc.php");?>
         <main>
-            <h1 class="titulo">Ventas</h1>
-            <div class="container_form">
-                <form action="../../src/php/registrar_venta.php" method="POST">
+            <?php if(isset($_GET['id'])):?>
+                <h1 class="titulo">Editar Venta: Nombre</h1>
+                    <div class="container_form">
+                    <form action="../../src/php/editar_venta.php" method="POST">
+                        <input type="hidden" name="id" value="<?= $_GET['id']?>">
+            <?php else:?>
+                <h1 class="titulo">Ventas</h1>
+                    <div class="container_form">
+                    <form action="../../src/php/registrar_venta.php" method="POST">
+            <?php endif;?>
                     <div class="input_group">
                         <label for="">Producto</label>
                         <select name="producto" id="">
@@ -72,7 +79,7 @@
                                 <td><?= $venta['fecha_salida']?></td>
                                 <td><?= $venta['nombreEmpleado']?></td>
                                 <td>
-                                    <a href="proveedores.php?id=<?= $venta['id']?>"><i class="icon-pencil"></i></a>
+                                    <a href="vender.php?id=<?= $venta['id']?>"><i class="icon-pencil"></i></a>
                                     <a class="delete" href="../../src/php/eliminar_venta.php?id=<?= $venta['id']?>"><i class="icon-trash"></i></a>
                                 </td>
                             </tr>
