@@ -22,7 +22,17 @@
         <?php require_once("templates/aside.inc.php");?>
         <main>
             <?php if(isset($_GET['id'])):?>
-                <h1 class="titulo">Editar Venta: Nombre</h1>
+                <h1 class="titulo">Editar Venta: 
+                <?php 
+                /* Inicio */
+               foreach($productos as $producto):?>
+                        <?php 
+                        if($producto['id'] == $_GET[id]){
+                            ?>  <td><?= $producto['nombre']?></td>
+                        <?php }
+                        ?>
+                <?php endforeach;?>
+                </h1>
                     <div class="container_form">
                     <form action="../../src/php/editar_venta.php" method="POST">
                         <input type="hidden" name="id" value="<?= $_GET['id']?>">
@@ -70,20 +80,6 @@
                         </tr>
                     </thead>
                     <tbody>
-<<<<<<< HEAD
-                        <tr>
-                            <td>Lapiz</td>
-                            <td>10</td>
-                            <td>10</td>
-                            <td>Andres Manuel</td>
-                            <td>10/10/10</td>
-                            <td>Administrador</td>
-                            <td>
-                            <a class="edit" href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
-                            <a class="delete" href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
-                            </td>
-                        </tr>
-=======
                         <?php foreach($ventas as $venta):?>
                             <tr>
                                 <td><?= $venta['nombreProducto']?></td>
@@ -98,7 +94,6 @@
                                 </td>
                             </tr>
                         <?php endforeach;?>
->>>>>>> 60dc9f2b07323ddf2b218abedca3c048cd141721
                     </tbody>
                 </table>
             </div>
