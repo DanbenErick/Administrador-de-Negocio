@@ -3,6 +3,9 @@
     error_reporting(0);
     require_once "../../src/php/funciones/funciones.php";
     if(isset($_SESSION['id_usuario'])):
+    $productos = traer_producto_venta()['data'];
+    $clientes = traer_cliente_venta()['data'];
+    $ventas = traer_ventas()['data'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,22 +23,26 @@
         <main>
             <h1 class="titulo">Ventas</h1>
             <div class="container_form">
-                <form action="">
+                <form action="../../src/php/registrar_venta.php" method="POST">
                     <div class="input_group">
                         <label for="">Producto</label>
                         <select name="producto" id="">
-                            <option value=""></option>
+                        <?php foreach($productos as $producto):?>
+                            <option value="<?= $producto['id']?>"><?= $producto['nombre'] ?></option>
+                        <?php endforeach;?>
                         </select>
                     </div>
                     <div class="input_group">
                         <label for="">Cliente</label>
                         <select name="cliente" id="">
-                            <option value=""></option>
+                        <?php foreach($clientes as $cliente):?>
+                            <option value="<?= $cliente['id']?>"><?= $cliente['nombre'] ?></option>
+                        <?php endforeach;?>
                         </select>
                     </div>
                     <div class="input_group">
                         <label for="cantidad">Cantidad</label>
-                        <input required type="number">
+                        <input required type="number" name="cantidad">
                     </div>
                     <div class="input_group">
                          <button type="submit">Guardar Cambios</button>
@@ -56,18 +63,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Lapiz</td>
-                            <td>10</td>
-                            <td>10</td>
-                            <td>Andres Manuel</td>
-                            <td>10/10/10</td>
-                            <td>Administrador</td>
-                            <td>
-                            <a href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
-                            <a class="delete" href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
-                            </td>
-                        </tr>
+                        <?php foreach($ventas as $venta):?>
+                            <tr>
+                                <td><?= $venta['nombreProducto']?></td>
+                                <td><?= $venta['cantidad']?></td>
+                                <td><?= $venta['precioProducto']?></td>
+                                <td><?= $venta['nombreCliente']?></td>
+                                <td><?= $venta['fecha_salida']?></td>
+                                <td><?= $venta['nombreEmpleado']?></td>
+                                <td>
+                                    <a href="proveedores.php?id=<?= $venta['id']?>"><i class="icon-pencil"></i></a>
+                                    <a class="delete" href="../../src/php/eliminar_venta.php?id=<?= $venta['id']?>"><i class="icon-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
                     </tbody>
                 </table>
             </div>
@@ -75,5 +84,5 @@
     </section>
 </body>
 </html>
-<?php else: header("Location: ../../index.php"); ?>
+<?php else: header("Location: ../../index.php");?>
 <?php endif; ?>

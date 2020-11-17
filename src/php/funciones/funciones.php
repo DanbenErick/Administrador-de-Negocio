@@ -561,7 +561,7 @@ function registrar_venta($id_producto, $id_cliente, $cantidad, $creador) {
     $insert->bindParam(":cantidad", $cantidad);
     $insert->bindParam(":id_producto", $id_producto);
     $insert->bindParam(":id_cliente", $id_cliente);
-    $insert->bindParam(":id_creador", $id_creador);
+    $insert->bindParam(":id_creador", $creador);
     if($insert->execute()) {
         return [
             'ok' => true,
