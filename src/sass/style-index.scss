@@ -19,10 +19,13 @@ section {
         font-weight: bold;
     }
 }
-
+@media(min-width: 768px) {
+    .container_login{
+        width: 30%;
+    }
+}
 .container_login {
     background: white;
-    width: 30%;
     padding: 0 50px;
     .input_group{
         padding-bottom: 20px ;
