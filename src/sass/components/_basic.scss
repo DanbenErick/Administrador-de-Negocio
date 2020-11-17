@@ -46,6 +46,40 @@ img  {
         color: darken($color_edit, 10);
     }
 }
+
+@media screen and (max-width: 600px) {   
+    .icon-arrow-circle-o-down {
+        color: $color_success;
+        font-size: 25px;
+        &:hover {
+            cursor: pointer;
+            color: darken($color_success, 10);
+        }
+    }
+    .icon-arrow-circle-o-up{
+        color: $color_error;
+        font-size: 25px;
+        &:hover {
+            cursor: pointer;
+            color: darken($color_error, 10);
+        }
+    }
+    nav{
+        ul{
+            li{
+                display: none;
+            }
+        }
+    }
+}
+@media(min-width: 768px) {
+    .icon-arrow-circle-o-down{
+        display: none;
+    }
+    .icon-arrow-circle-o-up{
+        display: none;
+    }
+}
 .icon-trash {
     color: $color_error;
     &:hover {

@@ -30,6 +30,28 @@ img {
     cursor: pointer;
     color: #c29d0b; }
 
+@media screen and (max-width: 600px) {
+  .icon-arrow-circle-o-down {
+    color: #27ae60;
+    font-size: 25px; }
+    .icon-arrow-circle-o-down:hover {
+      cursor: pointer;
+      color: #1e8449; }
+  .icon-arrow-circle-o-up {
+    color: #e74c3c;
+    font-size: 25px; }
+    .icon-arrow-circle-o-up:hover {
+      cursor: pointer;
+      color: #d62c1a; }
+  nav ul li {
+    display: none; } }
+
+@media (min-width: 768px) {
+  .icon-arrow-circle-o-down {
+    display: none; }
+  .icon-arrow-circle-o-up {
+    display: none; } }
+
 .icon-trash {
   color: #e74c3c; }
   .icon-trash:hover {

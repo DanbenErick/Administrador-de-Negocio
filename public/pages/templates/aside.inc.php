@@ -1,5 +1,5 @@
 <aside>
-    <ul class="menu">
+    <ul id="nav" class="menu">
         <li class="logo"><a href="panel.php">Inicio</a></li>
         <li class="logo"><a href="productos.php">Productos</a></li>
         <li class="logo"><a href="vender.php">Vender</a></li>
