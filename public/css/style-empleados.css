@@ -42,6 +42,9 @@ img {
     cursor: pointer;
     color: #1e8449; }
 
+.delete, .edit {
+  text-decoration: none; }
+
 nav {
   position: fixed;
   top: 0;
@@ -89,6 +92,35 @@ aside {
     aside ul li a:hover {
       background: #14384b; }
 
+@media screen and (max-width: 800px) {
+  header nav {
+    width: 80%;
+    height: 100%;
+    left: -100%;
+    margin: 0;
+    position: fixed; }
+  header nav ul li {
+    display: block;
+    float: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+  .menu_bar {
+    display: block;
+    width: 100%;
+    background: #ccc; }
+  .menu_bar .bt-menu {
+    display: block;
+    padding: 20px;
+    background: #024959;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .menu_bar span {
+    float: right;
+    font-size: 40px; } }
+
 main {
   padding: 40px; }
   main .container_form .input_group {
@@ -133,4 +165,22 @@ main {
       background: rgba(0, 0, 0, 0.1); }
     main .container_table table tbody tr:hover {
       background: rgba(0, 0, 0, 0.2); }
+  @media screen and (max-width: 600px) {
+    main .container_table table {
+      width: 100%; }
+    main .container_table thead {
+      display: none; }
+    main .container_table tr:nth-of-type(2n) {
+      background-color: inherit; }
+    main .container_table tr td:first-child {
+      background: #f0f0f0;
+      font-weight: bold;
+      font-size: 1.3em; }
+    main .container_table tbody td {
+      display: block;
+      text-align: center; }
+    main .container_table tbody td:before {
+      content: attr(data-th);
+      display: block;
+      text-align: center; } }
 /*# sourceMappingURL=style-empleados.css.map */

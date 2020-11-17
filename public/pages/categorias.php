@@ -72,7 +72,7 @@ if(isset($_SESSION['id_usuario'])):
                                 <?php if($_SESSION['id_rol'] == 1):?>
                                 <td><?= $categoria['nombre']?></td>
                                     <td>
-                                        <a href="categorias.php?id=<?= $categoria['id']?>"><i class="icon-pencil"></i></a>
+                                        <a class="edit" href="categorias.php?id=<?= $categoria['id']?>"><i class="icon-pencil"></i></a>
                                         <a class="delete" href="../../src/php/eliminar_categoria.php?id=<?= $categoria['id']?>"><i class="icon-trash"></i></a>
                                     </td>
                                 <?php endif;?>

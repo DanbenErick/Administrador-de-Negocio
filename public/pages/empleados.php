@@ -98,7 +98,7 @@ if(isset($_SESSION['id_usuario']) && $_SESSION['id_rol'] == 1):
                                         <?php endif;?>
                                     </td>
                                     <td>
-                                        <a href="empleados.php?id=<?= $empleado['id']?>"><i class="icon-pencil"></i></a>
+                                        <a class="edit" href="empleados.php?id=<?= $empleado['id']?>"><i class="icon-pencil"></i></a>
                                         <a class="delete" href="../../src/php/eliminar_empleado.php?id=<?= $empleado['id']?>"><i class="icon-trash"></i></a>
                                     </td>
                                 </tr>

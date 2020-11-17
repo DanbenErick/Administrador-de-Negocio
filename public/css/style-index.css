@@ -42,6 +42,9 @@ img {
     cursor: pointer;
     color: #1e8449; }
 
+.delete, .edit {
+  text-decoration: none; }
+
 body {
   background: url("https://images.pexels.com/photos/1428787/pexels-photo-1428787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"); }
 

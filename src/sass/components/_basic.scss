@@ -59,3 +59,6 @@ img  {
         color: darken($color_success, 10);
     }
 }
+.delete, .edit{
+    text-decoration: none;
+}

@@ -64,7 +64,7 @@
                             <td>10/10/10</td>
                             <td>Administrador</td>
                             <td>
-                            <a href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
+                            <a class="edit" href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
                             <a class="delete" href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
                             </td>
                         </tr>

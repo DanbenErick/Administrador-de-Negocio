@@ -85,7 +85,7 @@ if(isset($_SESSION['id_usuario'])):
                                     <?php if($_SESSION['id_rol'] == 1):?>
                                         <td><?= $proveedor[0]?></td>
                                         <td>
-                                            <a href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
+                                            <a class="edit" href="proveedores.php?id=<?= $proveedor['id']?>"><i class="icon-pencil"></i></a>
                                             <a class="delete" href="../../src/php/eliminar_proveedor.php?id=<?= $proveedor['id']?>"><i class="icon-trash"></i></a>
                                         </td>
                                     <?php endif;?>
